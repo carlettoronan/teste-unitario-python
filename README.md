@@ -49,14 +49,19 @@ Os cenários gerados pela IA foram analisados e inteiramente aceitos. Eles cobre
 ### Código final dos testes
 
 ```python
-    def test_potencia(self):
-        """Testa se a função potencia está funcionando corretamente."""
-        self.assertEqual(potencia(2, 3), 8)
-        self.assertEqual(potencia(5, 0), 1)
-        self.assertEqual(potencia(10, 2), 100)
-        self.assertEqual(potencia(2, -1), 0.5)
-        self.assertEqual(potencia(0, 5), 0)
-        self.assertEqual(potencia(-2, 2), 4)
+    def test_potencia_com_varios_casos(self):
+        """Testa se a função potencia está funcionando corretamente com múltiplos cenários."""
+        casos = [
+            (2, 3, 8),
+            (5, 0, 1),
+            (10, 2, 100),
+            (2, -1, 0.5),
+            (0, 5, 0),
+            (-2, 2, 4),
+        ]
+        for a, b, esperado in casos:
+            with self.subTest(a=a, b=b):
+                self.assertEqual(potencia(a, b), esperado)
 ```
 
 ### Resultado da execução
